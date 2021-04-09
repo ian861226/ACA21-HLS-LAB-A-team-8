@@ -1,0 +1,185 @@
+
+
+================================================================
+== Vivado HLS Report for 'shifter'
+================================================================
+* Date:           Wed Apr  7 14:42:28 2021
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        lab-a
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 4.150 ns |   0.63 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max    | min | max |   Type  |
+    +---------+---------+----------+-----------+-----+-----+---------+
+    |        1|       10| 5.000 ns | 50.000 ns |    1|   10|   none  |
+    +---------+---------+----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- LOOP    |        8|        8|         1|          1|          1|     8|    yes   |
+        |- LOOP    |        8|        8|         1|          1|          1|     8|    yes   |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    264|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        0|      -|      77|     86|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|    130|    -|
+|Register         |        -|      -|      53|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|     130|    480|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+------------------------+---------+-------+----+----+-----+
+    |         Instance         |         Module         | BRAM_18K| DSP48E| FF | LUT| URAM|
+    +--------------------------+------------------------+---------+-------+----+----+-----+
+    |shifter_AXILiteS_s_axi_U  |shifter_AXILiteS_s_axi  |        0|      0|  77|  86|    0|
+    +--------------------------+------------------------+---------+-------+----+----+-----+
+    |Total                     |                        |        0|      0|  77|  86|    0|
+    +--------------------------+------------------------+---------+-------+----+----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------+----------+-------+---+----+------------+------------+
+    |      Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |acc_V_1_fu_192_p2       |     +    |      0|  0|  13|           4|           4|
+    |acc_V_fu_251_p2         |     +    |      0|  0|  13|           4|           4|
+    |i_1_fu_178_p2           |     +    |      0|  0|  13|           4|           1|
+    |i_fu_228_p2             |     +    |      0|  0|  13|           4|           1|
+    |sub_ln556_fu_166_p2     |     -    |      0|  0|  15|           5|           4|
+    |r_V_1_fu_353_p2         |   ashr   |      0|  0|  19|           8|           8|
+    |icmp_ln69_fu_222_p2     |   icmp   |      0|  0|  11|           4|           5|
+    |icmp_ln78_fu_172_p2     |   icmp   |      0|  0|  11|           4|           5|
+    |icmp_ln879_1_fu_275_p2  |   icmp   |      0|  0|   9|           4|           3|
+    |icmp_ln879_fu_257_p2    |   icmp   |      0|  0|   9|           4|           1|
+    |lshr_ln1503_fu_238_p2   |   lshr   |      0|  0|  19|           8|           8|
+    |r_V_5_fu_312_p2         |   lshr   |      0|  0|  19|           8|           8|
+    |r_V_6_fu_330_p2         |   lshr   |      0|  0|  19|           8|           8|
+    |ret_V_fu_343_p2         |    or    |      0|  0|   8|           8|           8|
+    |select_ln61_fu_293_p3   |  select  |      0|  0|   8|           1|           8|
+    |select_ln879_fu_300_p3  |  select  |      0|  0|   8|           1|           8|
+    |r_V_4_fu_321_p2         |    shl   |      0|  0|  19|           8|           8|
+    |r_V_7_fu_338_p2         |    shl   |      0|  0|  19|           8|           8|
+    |r_V_fu_362_p2           |    shl   |      0|  0|  19|           8|           8|
+    +------------------------+----------+-------+---+----+------------+------------+
+    |Total                   |          |      0|  0| 264|         103|         108|
+    +------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------+----+-----------+-----+-----------+
+    |            Name            | LUT| Input Size| Bits| Total Bits|
+    +----------------------------+----+-----------+-----+-----------+
+    |agg_result_V_0_i15_reg_103  |   9|          2|    4|          8|
+    |agg_result_V_0_i_reg_135    |   9|          2|    4|          8|
+    |ap_NS_fsm                   |  41|          8|    1|          8|
+    |dout_V                      |  44|          9|    8|         72|
+    |i_0_i_reg_124               |   9|          2|    4|          8|
+    |op2_assign_reg_147          |   9|          2|    4|          8|
+    |tmp_0_i_reg_115             |   9|          2|    8|         16|
+    +----------------------------+----+-----------+-----+-----------+
+    |Total                       | 130|         27|   33|        128|
+    +----------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------+---+----+-----+-----------+
+    |            Name            | FF| LUT| Bits| Const Bits|
+    +----------------------------+---+----+-----+-----------+
+    |agg_result_V_0_i15_reg_103  |  4|   0|    4|          0|
+    |agg_result_V_0_i_reg_135    |  4|   0|    4|          0|
+    |ap_CS_fsm                   |  7|   0|    7|          0|
+    |din_V_read_reg_378          |  8|   0|    8|          0|
+    |i_0_i_reg_124               |  4|   0|    4|          0|
+    |mode_V_read_reg_393         |  3|   0|    3|          0|
+    |op2_assign_reg_147          |  4|   0|    4|          0|
+    |ret_V_2_reg_397             |  3|   0|    3|          0|
+    |s_V_read_reg_368            |  4|   0|    4|          0|
+    |sub_ln556_reg_402           |  4|   0|    4|          0|
+    |tmp_0_i_reg_115             |  8|   0|    8|          0|
+    +----------------------------+---+----+-----+-----------+
+    |Total                       | 53|   0|   53|          0|
+    +----------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+--------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------------+-----+-----+------------+--------------+--------------+
+|s_axi_AXILiteS_AWVALID  |  in |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_AWREADY  | out |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_AWADDR   |  in |    6|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_WVALID   |  in |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_WREADY   | out |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_WDATA    |  in |   32|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_WSTRB    |  in |    4|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_ARVALID  |  in |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_ARREADY  | out |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_ARADDR   |  in |    6|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_RVALID   | out |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_RREADY   |  in |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_RDATA    | out |   32|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_RRESP    | out |    2|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_BVALID   | out |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_BREADY   |  in |    1|    s_axi   |   AXILiteS   |    pointer   |
+|s_axi_AXILiteS_BRESP    | out |    2|    s_axi   |   AXILiteS   |    pointer   |
+|ap_clk                  |  in |    1| ap_ctrl_hs |    shifter   | return value |
+|ap_rst_n                |  in |    1| ap_ctrl_hs |    shifter   | return value |
+|ap_start                |  in |    1| ap_ctrl_hs |    shifter   | return value |
+|ap_done                 | out |    1| ap_ctrl_hs |    shifter   | return value |
+|ap_idle                 | out |    1| ap_ctrl_hs |    shifter   | return value |
+|ap_ready                | out |    1| ap_ctrl_hs |    shifter   | return value |
++------------------------+-----+-----+------------+--------------+--------------+
+
