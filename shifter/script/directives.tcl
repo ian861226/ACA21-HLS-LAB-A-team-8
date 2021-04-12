@@ -5,7 +5,7 @@
 ############################################################
 set_directive_pipeline -II 1 "shift_mask_dynamic/LOOP"
 set_directive_pipeline -II 1 "shift_mask_static/LOOP"
-set_directive_interface -mode s_axilite "shifter" mode
-set_directive_interface -mode s_axilite "shifter" din
-set_directive_interface -mode s_axilite "shifter" s
-set_directive_interface -mode s_axilite "shifter" dout
+set_directive_interface "shifter" mode
+set_directive_interface "shifter" din
+set_directive_interface "shifter" s
+set_directive_interface "shifter" dout
