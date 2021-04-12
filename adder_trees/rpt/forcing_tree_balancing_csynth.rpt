@@ -1,0 +1,159 @@
+
+
+================================================================
+== Vivado HLS Report for 'adder_tree_rebalanced'
+================================================================
+* Date:           Mon Apr 12 23:06:42 2021
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        forcing_balancing
+* Solution:       ap_none_input
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 3.669 ns |   0.63 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline |
+    |   min   |   max   |    min    |    max    | min | max |   Type   |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+    |        2|        2| 10.000 ns | 10.000 ns |    1|    1| function |
+    +---------+---------+-----------+-----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|    145|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        -|      -|       -|      -|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|      -|    -|
+|Register         |        -|      -|      67|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        0|      0|      67|    145|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |add_ln700_1_fu_218_p2      |     +    |      0|  0|  15|           8|           8|
+    |add_ln700_2_fu_239_p2      |     +    |      0|  0|   8|           8|           8|
+    |add_ln700_3_fu_230_p2      |     +    |      0|  0|   8|           8|           8|
+    |add_ln700_4_fu_224_p2      |     +    |      0|  0|  15|           8|           8|
+    |add_ln700_5_fu_234_p2      |     +    |      0|  0|   8|           8|           8|
+    |add_ln700_fu_212_p2        |     +    |      0|  0|  15|           8|           8|
+    |ap_return                  |     +    |      0|  0|   8|           8|           8|
+    |ap_block_pp0_stage0_11001  |    and   |      0|  0|   2|           1|           1|
+    |select_ln18_1_fu_156_p3    |  select  |      0|  0|   8|           1|           8|
+    |select_ln18_2_fu_164_p3    |  select  |      0|  0|   8|           1|           8|
+    |select_ln18_3_fu_172_p3    |  select  |      0|  0|   8|           1|           8|
+    |select_ln18_4_fu_180_p3    |  select  |      0|  0|   8|           1|           8|
+    |select_ln18_5_fu_188_p3    |  select  |      0|  0|   8|           1|           8|
+    |select_ln18_6_fu_196_p3    |  select  |      0|  0|   8|           1|           8|
+    |select_ln18_7_fu_204_p3    |  select  |      0|  0|   8|           1|           8|
+    |select_ln18_fu_148_p3      |  select  |      0|  0|   8|           1|           8|
+    |ap_enable_pp0              |    xor   |      0|  0|   2|           1|           2|
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |Total                      |          |      0|  0| 145|          66|         123|
+    +---------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    +-----------------------------------+---+----+-----+-----------+
+    |                Name               | FF| LUT| Bits| Const Bits|
+    +-----------------------------------+---+----+-----+-----------+
+    |add_ln700_1_reg_263                |  8|   0|    8|          0|
+    |add_ln700_1_reg_263_pp0_iter1_reg  |  8|   0|    8|          0|
+    |add_ln700_4_reg_268                |  8|   0|    8|          0|
+    |add_ln700_5_reg_273                |  8|   0|    8|          0|
+    |add_ln700_reg_258                  |  8|   0|    8|          0|
+    |add_ln700_reg_258_pp0_iter1_reg    |  8|   0|    8|          0|
+    |ap_CS_fsm                          |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1            |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2            |  1|   0|    1|          0|
+    |select_ln18_4_reg_248              |  8|   0|    8|          0|
+    |select_ln18_5_reg_253              |  8|   0|    8|          0|
+    +-----------------------------------+---+----+-----+-----------+
+    |Total                              | 67|   0|   67|          0|
+    +-----------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------+-----+-----+------------+-----------------------+--------------+
+| RTL Ports | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++-----------+-----+-----+------------+-----------------------+--------------+
+|ap_clk     |  in |    1| ap_ctrl_hs | adder_tree_rebalanced | return value |
+|ap_rst     |  in |    1| ap_ctrl_hs | adder_tree_rebalanced | return value |
+|ap_start   |  in |    1| ap_ctrl_hs | adder_tree_rebalanced | return value |
+|ap_done    | out |    1| ap_ctrl_hs | adder_tree_rebalanced | return value |
+|ap_idle    | out |    1| ap_ctrl_hs | adder_tree_rebalanced | return value |
+|ap_ready   | out |    1| ap_ctrl_hs | adder_tree_rebalanced | return value |
+|ap_return  | out |    8| ap_ctrl_hs | adder_tree_rebalanced | return value |
+|din_0_V    |  in |    8|   ap_none  |        din_0_V        |    pointer   |
+|din_1_V    |  in |    8|   ap_none  |        din_1_V        |    pointer   |
+|din_2_V    |  in |    8|   ap_none  |        din_2_V        |    pointer   |
+|din_3_V    |  in |    8|   ap_none  |        din_3_V        |    pointer   |
+|din_4_V    |  in |    8|   ap_none  |        din_4_V        |    pointer   |
+|din_5_V    |  in |    8|   ap_none  |        din_5_V        |    pointer   |
+|din_6_V    |  in |    8|   ap_none  |        din_6_V        |    pointer   |
+|din_7_V    |  in |    8|   ap_none  |        din_7_V        |    pointer   |
+|s_0        |  in |    1|   ap_none  |          s_0          |    pointer   |
+|s_1        |  in |    1|   ap_none  |          s_1          |    pointer   |
+|s_2        |  in |    1|   ap_none  |          s_2          |    pointer   |
+|s_3        |  in |    1|   ap_none  |          s_3          |    pointer   |
+|s_4        |  in |    1|   ap_none  |          s_4          |    pointer   |
+|s_5        |  in |    1|   ap_none  |          s_5          |    pointer   |
+|s_6        |  in |    1|   ap_none  |          s_6          |    pointer   |
+|s_7        |  in |    1|   ap_none  |          s_7          |    pointer   |
++-----------+-----+-----+------------+-----------------------+--------------+
+
