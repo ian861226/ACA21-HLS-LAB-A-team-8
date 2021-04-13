@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void shifter(ap_uint<3> mode, ap_uint<NUM_BITS> din, ap_uint<CTRL_BITS> s, ap_uint<NUM_BITS>* dout) {
+void shifter(ap_uint<4> mode, ap_uint<NUM_BITS> din, ap_uint<CTRL_BITS> s, ap_uint<NUM_BITS>* dout) {
     switch(mode) {
     case 0:
     	*dout = barrel_shift_al(din, s);
@@ -30,6 +30,9 @@ void shifter(ap_uint<3> mode, ap_uint<NUM_BITS> din, ap_uint<CTRL_BITS> s, ap_ui
     case 7:
     	*dout = shift_mask_static(din);
 		break;
+    default:
+    	*dout = bi_shift(din, s);
+    	break;
     }
 }
 
@@ -66,7 +69,7 @@ ap_uint<NUM_BITS> barrel_shift_lr_const(ap_uint<NUM_BITS> din, ap_uint<CTRL_BITS
 
 ap_uint<NUM_BITS> shift_mask_dynamic(ap_uint<NUM_BITS> din) {
 	ap_uint<NUM_BITS> acc = 0;
-	LOOP: for(int i = 0; i < NUM_BITS; ++i)
+	LOOP1: for(int i = 0; i < NUM_BITS; ++i)
 		acc += (din >> i) & 1;
 	return acc;
 }
@@ -75,9 +78,13 @@ ap_uint<NUM_BITS> shift_mask_static(ap_uint<NUM_BITS> din) {
 	ap_uint<NUM_BITS> acc = 0;
 	ap_uint<NUM_BITS> tmp = din;
 
-	LOOP: for(int i = 0; i < NUM_BITS; ++i) {
+	LOOP2: for(int i = 0; i < NUM_BITS; ++i) {
 		acc += tmp & 1;
 		tmp >>= 1;
 	}
 	return acc;
+}
+
+ap_uint<NUM_BITS> bi_shift(ap_uint<NUM_BITS> din, ap_int<CTRL_BITS> s) {
+	return din >> s;
 }
