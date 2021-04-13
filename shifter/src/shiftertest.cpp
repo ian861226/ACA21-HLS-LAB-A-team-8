@@ -10,32 +10,51 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-	ap_uint<3> mode;
+	ap_uint<4> mode;
 	bool pass = 1;
 	ap_uint<CTRL_BITS> s;
+
 	for(int i = 0; i < TEST_NUM; ++i) {
 		cout << "-------test " << i << " -------" << endl;
-		mode = rand() % 8;
+		mode = rand() % 9;
 		cout << "mode: " << mode << endl;
 		s = rand();
-		cout << "s: " << s << endl;
-		if(mode < 2) {
+		if(mode == 8) {
+			ap_uint<NUM_BITS> output;
+			ap_uint<NUM_BITS> input = rand();
+			ap_int<CTRL_BITS> ss;
+			ss = rand();
+			shifter(mode, input, ss, &output);
+			cout << "s: " << ss << endl;
+			cout << "input: " <<  input << endl;
+			cout << "your output: " << output << endl;
+			if(output != input >> ss) {
+				cout << "golden: " << (input >> ss) << endl;
+				pass = 0;
+				break;
+			}
+
+		}
+		else if(mode < 2) {
 			//arithmetic
+			cout << "s: " << s << endl;
 			ap_int<NUM_BITS> input = rand();
 			ap_uint<NUM_BITS> output;
 			ap_int<NUM_BITS> signed_out;
 			shifter(mode, input, s, &output);
 			signed_out = output;
-			cout << input << endl;
-			cout << signed_out << endl;
+			cout << "input: " <<  input << endl;
+			cout << "your output: " << signed_out << endl;
 			if(mode == 0) {
 				if(signed_out != input << s) {
+					cout << "golden: " << (input << s) << endl;
 					pass = 0;
 					break;
 				}
 			}
 			else if(mode == 1) {
 				if(signed_out != input >> s) {
+					cout << "golden: " << (input >> s) << endl;
 					pass = 0;
 					break;
 				}
@@ -43,11 +62,12 @@ int main(int argc, char *argv[]) {
 
 		}
 		else {
-			ap_uint<NUM_BITS> input = rand();
 			ap_uint<NUM_BITS> output;
+			cout << "s: " << s << endl;
+			ap_uint<NUM_BITS> input = rand();
 			shifter(mode, input, s, &output);
-			cout << "input: " <<input << endl;
-			cout << "your output: " <<output << endl;
+			cout << "input: " << input << endl;
+			cout << "your output: " << output << endl;
 			if(mode == 2) {
 				if(output != (input >> (s%NUM_BITS) | (input << (NUM_BITS-(s%NUM_BITS))))) {
 					cout << "golden: " << (input >> (s%NUM_BITS) | (input << (NUM_BITS-(s%NUM_BITS)))) << endl;
